@@ -4,25 +4,31 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_gatos"
             android:icon="@drawable/gato"
             android:title="@string/menu_gatos" />
+
         <item
             android:id="@+id/nav_colonias"
-            android:icon="@drawable/colonias"
+            android:icon="@drawable/huellascolonias"
             android:title="@string/menu_colonias" />
+
         <item
             android:id="@+id/nav_cuidadores"
             android:icon="@drawable/cuidadores"
             android:title="@string/menu_cuidadores" />
+
         <item
             android:id="@+id/nav_clinicas"
             android:icon="@drawable/clinica"
             android:title="@string/menu_clinica" />
+
         <item
             android:id="@+id/nav_tratamientos"
             android:icon="@drawable/tratamientos"
             android:title="@string/menu_tratamiento" />
+
     </group>
 </menu>
