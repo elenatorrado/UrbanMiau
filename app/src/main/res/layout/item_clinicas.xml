@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="20dp"
+    app:cardBackgroundColor="@color/soft_pink"> <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:columnCount="2"
+        android:rowCount="4"
+        android:alignmentMode="alignBounds"
+        android:columnOrderPreserved="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/tvValorColonia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SanteVet"
+            android:textColor="@color/white_soft"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefono:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/tvValorCuidador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="955111777"
+            android:textColor="@color/white_soft"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ciudad:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/tvValorCiudad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sevilla"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Direccion:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/tvValorClinica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C/Luz,10"
+            android:textColor="@color/white_soft"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+    </GridLayout>
+
+    <ImageView
+        android:id="@+id/imgGatosIcon"
+        android:layout_width="127dp"
+        android:layout_height="113dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/clinicaimg" /> </LinearLayout>
+</androidx.cardview.widget.CardView>

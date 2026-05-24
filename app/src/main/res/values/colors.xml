@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Fondo degradado -->
+    <color name="background_top">#EFEBCF</color>
+    <color name="background_bottom">#A8F0A3</color>
+
+    <!-- Colores principales -->
+    <color name="primary_blue">#9FD1F3</color>
+    <color name="soft_purple">#D7B3F7</color>
+    <color name="soft_pink">#F6A6D8</color>
+    <color name="soft_yellow">#F7E7A1</color>
+    <color name="mint_green">#7DE2C3</color>
+
+    <!-- Textos -->
+    <color name="text_dark">#3A3A3A</color>
+    <color name="text_grey">#6E6E6E</color>
+
+    <!-- Blancos y bordes -->
+    <color name="white_soft">#FDFDFD</color>
+    <color name="border_color">#E6E6E6</color>
+
+    <!-- Sombras -->
+    <color name="shadow_color">#22000000</color>
+
+
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+
+</resources>

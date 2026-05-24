@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">UrbanMiau</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">UrbanMiau</string>
+    <string name="nav_header_subtitle">Armonia Gatuna</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_gatos">Gatos</string>
+    <string name="menu_colonias">Colonias</string>
+    <string name="menu_cuidadores">Cuidadores</string>
+    <string name="menu_clinica">Clinicas</string>
+    <string name="menu_tratamiento">Tratamientos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+</resources>
