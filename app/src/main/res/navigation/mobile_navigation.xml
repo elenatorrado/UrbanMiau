@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_gatos">
+
+    <fragment
+        android:id="@+id/nav_gatos"
+        android:name="es.studium.urbanmiau.ui.gatos.GatosFragment"
+        android:label="@string/menu_gatos"
+        tools:layout="@layout/fragment_gatos" />
+
+    <fragment
+        android:id="@+id/nav_colonias"
+        android:name="es.studium.urbanmiau.ui.colonias.ColoniasFragment"
+        android:label="@string/menu_colonias"
+        tools:layout="@layout/fragment_colonias" />
+
+    <fragment
+        android:id="@+id/nav_cuidadores"
+        android:name="es.studium.urbanmiau.ui.cuidadores.CuidadoresFragment"
+        android:label="@string/menu_cuidadores"
+        tools:layout="@layout/fragment_cuidadores" />
+
+    <fragment
+        android:id="@+id/nav_clinicas"
+        android:name="es.studium.urbanmiau.ui.clinicas.ClinicasFragment"
+        android:label="@string/menu_clinica"
+        tools:layout="@layout/fragment_clinicas">
+
+        <action
+            android:id="@+id/action_nav_clinicas_to_clinicasInfoFragment"
+            app:destination="@id/clinicasInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_tratamientos"
+        android:name="es.studium.urbanmiau.ui.tratamientos.TratamientosFragment"
+        android:label="@string/menu_tratamiento"
+        tools:layout="@layout/fragment_tratamientos" />
+
+    <fragment
+        android:id="@+id/pastillaInfoFragment"
+        android:name="es.studium.urbanmiau.ui.tratamientos.PastillaInfoFragment"
+        android:label="Pastillas Info" />
+
+    <fragment
+        android:id="@+id/rehabilitacionInfoFragment"
+        android:name="es.studium.urbanmiau.ui.tratamientos.RehabilitacionInfoFragment"
+        android:label="RehabilitacionInfoFragment" />
+
+    <fragment
+        android:id="@+id/curasInfoFragment2"
+        android:name="es.studium.urbanmiau.ui.tratamientos.CurasInfoFragment"
+        android:label="CurasInfoFragment" />
+
+    <fragment
+        android:id="@+id/clinicasInfoFragment"
+        android:name="es.studium.urbanmiau.ui.clinicas.ClinicasInfoFragment"
+        android:label="fragment_clinicas_info"
+        tools:layout="@layout/fragment_clinicas_info" />
+</navigation>

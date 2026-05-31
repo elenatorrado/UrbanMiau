@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_gatos">
+
+    <fragment
+        android:id="@+id/nav_clinicas"
+        android:name="es.studium.urbanmiau.ui.clinicas.ClinicasFragment">
+        <action
+            android:id="@+id/action_nav_clinicas_to_clinicasInfoFragment"
+            app:destination="@id/nav_clinicas_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_clinicas_info"
+        android:name="es.studium.urbanmiau.ui.clinicas.ClinicasInfoFragment" />
+
+    <fragment
+        android:id="@+id/nav_gatos"
+        android:name="es.studium.urbanmiau.ui.gatos.GatosFragment"
+        tools:layout="@layout/fragment_gatos">
+        <action
+            android:id="@+id/action_nav_gatos_to_gatosInfoFragment"
+            app:destination="@id/nav_gatos_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_gatos_info"
+        android:name="es.studium.urbanmiau.ui.gatos.GatosInfoFragment"
+        tools:layout="@layout/activity_gatos_info" />
+
+    <fragment
+        android:id="@+id/nav_colonias"
+        android:name="es.studium.urbanmiau.ui.colonias.ColoniasFragment"
+        tools:layout="@layout/fragment_colonias">
+        <action
+            android:id="@+id/action_nav_colonias_to_coloniasInfoFragment"
+            app:destination="@id/nav_colonias_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_colonias_info"
+        android:name="es.studium.urbanmiau.ui.colonias.ColoniasInfoFragment"
+        tools:layout="@layout/activity_colonias_info" />
+
+</navigation>
