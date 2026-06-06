@@ -3,38 +3,45 @@ package es.studium.urbanmiau.crudgatos;
 import android.util.Log;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.io.IOException;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 
-public class ConsultaGato { OkHttpClient client = new OkHttpClient();
+public class ConsultaGato {
 
-Request request = new Request.Builder()
-        .url("http://10.0.2.2/urbanmiau/gatos.php")
-        .build();
+    OkHttpClient client = new OkHttpClient();
 
-public ConsultaGato() {}
-
-
-public JSONArray obtenerGatos() {
-    JSONArray resultado = new JSONArray();
-    try {
-        Response response = client.newCall(request).execute();
-        if (response.isSuccessful()) {
-
-            resultado = new JSONArray(response.body().string());
-        } else {
-            Log.e("ConsultaGato", "Error: " + response.message());
-        }
-    } catch (IOException e) {
-        Log.e("ConsultaGato", "Error IO: " + e.getMessage());
-    } catch (JSONException e) {
-        Log.e("ConsultaGato", "Error JSON: " + e.getMessage());
+    public interface CallbackGatos {
+        void onSuccess(JSONArray data);
+        void onError(Exception e);
     }
-    return resultado;
-}
+
+    public void obtenerGatos(CallbackGatos callback) {
+
+        Request request = new Request.Builder()
+                .url("http://10.0.2.2/urbanmiau/gatos.php")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                callback.onError(e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+                try {
+                    String json = response.body().string();
+                    JSONArray arr = new JSONArray(json);
+                    callback.onSuccess(arr);
+
+                } catch (Exception e) {
+                    callback.onError(e);
+                }
+            }
+        });
+    }
 }

@@ -6,96 +6,110 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="20dp"
-    app:cardBackgroundColor="@color/mint_green"> <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="12dp">
+    app:cardBackgroundColor="@color/mint_green">
 
-    <GridLayout
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:columnCount="2"
-        android:rowCount="4"
-        android:alignmentMode="alignBounds"
-        android:columnOrderPreserved="true">
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Nombre:"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:padding="4dp"/>
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvValorNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Blanca"
-            android:textColor="@color/white_soft"
-            android:textStyle="bold"
-            android:padding="4dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvValorNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blanca"
+                    android:textColor="#F5F5F5"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edad:"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:padding="4dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="Edad:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvValorEdad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 año"
+                    android:textColor="#F5F5F5"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvValorEdad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1 año"
-            android:textColor="@color/white_soft"
-            android:textStyle="bold"
-            android:padding="4dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="Colonia:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvValorCiudad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MiauColonia"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Colonia:"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:padding="4dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cuidador/a:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvValorClinica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paula Santander"
+                    android:textColor="#F5F5F5"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvValorCiudad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Blanca"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:padding="4dp"/>
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cuidador/a:"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:padding="4dp"/>
+        <ImageView
+            android:id="@+id/imgGatosIcon"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/gatoimg" />
 
-        <TextView
-            android:id="@+id/tvValorClinica"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Paula Santander"
-            android:textColor="@color/white_soft"
-            android:textStyle="bold"
-            android:padding="4dp"/>
-
-    </GridLayout>
-
-    <ImageView
-        android:id="@+id/imgGatosIcon"
-        android:layout_width="127dp"
-        android:layout_height="113dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
-        android:src="@drawable/gatoimg" /> </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

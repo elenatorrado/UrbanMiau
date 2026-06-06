@@ -1,42 +1,49 @@
-package es.studium.urbanmiau.baja;
+package es.studium.urbanmiau.crudgatos;
 
 import android.util.Log;
-
 import java.io.IOException;
-
 import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class BajaGatos {
 
-    OkHttpClient client = new OkHttpClient();
+    private final OkHttpClient client = new OkHttpClient();
 
-    public BajaGatos() {}
+    // Definimos una interfaz para devolver la respuesta al Fragment
+    public interface CallbackBaja {
+        void onSuccess();
+        void onError(String mensajeError);
+    }
 
-    public boolean darBaja(long idGato) {
-
-        boolean correcta = true;
-
+    public void darBaja(long idGato, CallbackBaja callback) {
         Request request = new Request.Builder()
                 .url("http://10.0.2.2/urbanmiau/gatos.php?idGato=" + idGato)
                 .delete()
                 .build();
 
-        Call call = client.newCall(request);
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("BajaGato", "Error de red: " + e.getMessage());
+                callback.onError(e.getMessage());
+            }
 
-        try {
-            Response response = call.execute();
-            Log.i("BajaGato", String.valueOf(response));
-            Log.i("BajaGato", "Enviando petición de baja para ID: " + idGato);
-            correcta = true;
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String respuesta = response.body() != null ? response.body().string() : "";
+                Log.i("BajaGato", "ID enviado: " + idGato);
+                Log.i("BajaGato", "Código HTTP: " + response.code());
+                Log.i("BajaGato", "Respuesta PHP: " + respuesta);
 
-        } catch (IOException e) {
-            Log.e("BajaGato", e.getMessage());
-            correcta = false;
-        }
-
-        return correcta;
+                if (response.isSuccessful()) {
+                    callback.onSuccess();
+                } else {
+                    callback.onError("Código de servidor: " + response.code());
+                }
+            }
+        });
     }
 }
