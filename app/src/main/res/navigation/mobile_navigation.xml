@@ -72,7 +72,7 @@
         android:id="@+id/clinicasInfoFragment"
         android:name="es.studium.urbanmiau.ui.clinicas.ClinicasInfoFragment"
         android:label="fragment_clinicas_info"
-        tools:layout="@layout/fragment_clinicas_info" />
+        tools:layout="@layout/activity_clinicas_info" />
 
     <fragment
         android:id="@+id/coloniasInfoFragment"
