@@ -30,7 +30,7 @@
             android:padding="4dp"/>
 
         <TextView
-            android:id="@+id/tvValorColonia"
+            android:id="@+id/tvValorNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Blanca"
@@ -47,7 +47,7 @@
             android:padding="4dp"/>
 
         <TextView
-            android:id="@+id/tvValorCuidador"
+            android:id="@+id/tvValorEdad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1 año"

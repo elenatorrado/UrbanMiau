@@ -69,6 +69,7 @@
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
 
+
             <TextView
                 android:id="@+id/valorColonia"
                 android:layout_marginLeft="5sp"
