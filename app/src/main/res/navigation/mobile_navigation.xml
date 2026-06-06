@@ -15,7 +15,13 @@
         android:id="@+id/nav_colonias"
         android:name="es.studium.urbanmiau.ui.colonias.ColoniasFragment"
         android:label="@string/menu_colonias"
-        tools:layout="@layout/fragment_colonias" />
+        tools:layout="@layout/fragment_colonias">
+
+        <action
+            android:id="@+id/action_nav_colonias_to_coloniasInfoFragment"
+            app:destination="@id/coloniasInfoFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/nav_cuidadores"
@@ -32,13 +38,20 @@
         <action
             android:id="@+id/action_nav_clinicas_to_clinicasInfoFragment"
             app:destination="@id/clinicasInfoFragment" />
+
     </fragment>
 
     <fragment
         android:id="@+id/nav_tratamientos"
         android:name="es.studium.urbanmiau.ui.tratamientos.TratamientosFragment"
         android:label="@string/menu_tratamiento"
-        tools:layout="@layout/fragment_tratamientos" />
+        tools:layout="@layout/fragment_tratamientos">
+
+        <action
+            android:id="@+id/action_nav_tratamientos_to_tratamientoInfoFragment"
+            app:destination="@id/tratamientoInfoFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/pastillaInfoFragment"
@@ -60,4 +73,17 @@
         android:name="es.studium.urbanmiau.ui.clinicas.ClinicasInfoFragment"
         android:label="fragment_clinicas_info"
         tools:layout="@layout/fragment_clinicas_info" />
+
+    <fragment
+        android:id="@+id/coloniasInfoFragment"
+        android:name="es.studium.urbanmiau.ui.colonias.ColoniasInfoFragment"
+        android:label="ColoniasInfoFragment"
+        tools:layout="@layout/activity_coloniasinfo" />
+
+    <fragment
+        android:id="@+id/tratamientoInfoFragment"
+        android:name="es.studium.urbanmiau.ui.tratamientos.TratamientoInfoFragment"
+        android:label="TratamientoInfoFragment"
+        tools:layout="@layout/activity_tratamiento_info" />
+
 </navigation>

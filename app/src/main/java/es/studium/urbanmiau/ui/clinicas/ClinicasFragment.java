@@ -130,7 +130,11 @@ public class ClinicasFragment extends Fragment {
         Button btnGuardar = vistaDialogo.findViewById(R.id.btnGuardarAlta);
 
         // Hardcodeadas las ciudades de momento
-        String[] ciudadesMock = {"Sevilla", "Dos Hermanas"};
+        String[] ciudadesMock = {"Madrid",
+                "Toledo",
+                "Sevilla",
+                "Barcelona"
+        };
         android.widget.ArrayAdapter<String> adapter = new android.widget.ArrayAdapter<>(
                 requireContext(), android.R.layout.simple_spinner_item, ciudadesMock);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -1,66 +1,211 @@
 package es.studium.urbanmiau.ui.colonias;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import es.studium.urbanmiau.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ColoniasInfoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class    ColoniasInfoFragment extends Fragment {
+public class ColoniasInfoFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private TextView textNombreGato;
+    private TextView valorColonia;
+    private TextView valorClinica;
+    private TextView textUbicacion;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private int idColonia;
+    private String nombre;
+    private String ciudad;
+
+    private ColoniasViewModel viewModel;
 
     public ColoniasInfoFragment() {
-        // Required empty public constructor
+        // Constructor vacío obligatorio
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ColoniasInfoFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ColoniasInfoFragment newInstance(String param1, String param2) {
-        ColoniasInfoFragment fragment = new ColoniasInfoFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
+
+        View vista = inflater.inflate(
+                R.layout.activity_coloniasinfo,
+                container,
+                false
+        );
+
+        textNombreGato = vista.findViewById(R.id.textNombreGato);
+        valorColonia = vista.findViewById(R.id.valorColonia);
+        valorClinica = vista.findViewById(R.id.valorClinica);
+        textUbicacion = vista.findViewById(R.id.textUbicacion);
+
+        viewModel = new ViewModelProvider(requireActivity())
+                .get(ColoniasViewModel.class);
+
+        Bundle datos = getArguments();
+
+        if (datos != null) {
+
+            idColonia = datos.getInt("idColonia");
+
+            nombre = datos.getString(
+                    "nombreColonia",
+                    "Sin nombre"
+            );
+
+            ciudad = datos.getString(
+                    "ciudadColonia",
+                    "Sin ciudad"
+            );
+
+            String clinica = datos.getString(
+                    "clinicaColonia",
+                    "Sin clínica"
+            );
+
+            textNombreGato.setText(nombre);
+            valorColonia.setText(nombre);
+            valorClinica.setText(clinica);
+            textUbicacion.setText(ciudad);
         }
+
+        FloatingActionButton btnEditar =
+                vista.findViewById(R.id.btnEditarColonia);
+
+        btnEditar.setOnClickListener(v ->
+                mostrarDialogoEdicion(vista)
+        );
+
+        return vista;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_coloniasinfo, container, false);
+    private void mostrarDialogoEdicion(View vistaFragmento) {
+
+        com.google.android.material.bottomsheet.BottomSheetDialog dialog =
+                new com.google.android.material.bottomsheet.BottomSheetDialog(
+                        requireContext()
+                );
+
+        View vistaDialogo =
+                getLayoutInflater().inflate(
+                        R.layout.dialog_alta_colonia,
+                        null
+                );
+
+        dialog.setContentView(vistaDialogo);
+
+        EditText etNombre =
+                vistaDialogo.findViewById(
+                        R.id.etAltaNombreColonia
+                );
+
+        Spinner spCiudad =
+                vistaDialogo.findViewById(
+                        R.id.spAltaCiudadColonia
+                );
+
+        Button btnCancelar =
+                vistaDialogo.findViewById(
+                        R.id.btnCancelarAltaColonia
+                );
+
+        Button btnGuardar =
+                vistaDialogo.findViewById(
+                        R.id.btnGuardarAltaColonia
+                );
+
+        etNombre.setText(nombre);
+
+        String[] ciudades = {
+                "Madrid",
+                "Toledo",
+                "Sevilla",
+                "Barcelona"
+        };
+
+        ArrayAdapter<String> adapterCiudades =
+                new ArrayAdapter<>(
+                        requireContext(),
+                        android.R.layout.simple_spinner_item,
+                        ciudades
+                );
+
+        adapterCiudades.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item
+        );
+
+        spCiudad.setAdapter(adapterCiudades);
+
+        for (int i = 0; i < ciudades.length; i++) {
+
+            if (ciudades[i].equalsIgnoreCase(ciudad)) {
+
+                spCiudad.setSelection(i);
+                break;
+            }
+        }
+
+        btnCancelar.setOnClickListener(
+                v -> dialog.dismiss()
+        );
+
+        btnGuardar.setOnClickListener(v -> {
+
+            String nuevoNombre =
+                    etNombre.getText()
+                            .toString()
+                            .trim();
+
+            String nuevaCiudad =
+                    spCiudad.getSelectedItem()
+                            .toString();
+
+            if (nuevoNombre.isEmpty()) {
+
+                Toast.makeText(
+                        requireContext(),
+                        "Introduce un nombre",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                return;
+            }
+
+            viewModel.actualizarColonia(
+                    idColonia,
+                    nuevoNombre,
+                    nuevaCiudad
+            );
+
+            Toast.makeText(
+                    requireContext(),
+                    "Colonia actualizada",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            dialog.dismiss();
+
+            Navigation.findNavController(vistaFragmento)
+                    .navigateUp();
+        });
+
+        dialog.show();
     }
 }
