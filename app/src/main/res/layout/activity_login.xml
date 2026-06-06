@@ -37,6 +37,7 @@
 
         <!-- Label Usuario -->
         <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Usuario:"
@@ -48,11 +49,13 @@
         <!-- Campo Usuario -->
         <EditText
             android:id="@+id/etUsuario"
+            android:background="@drawable/bg_redondo"
+            android:drawableStart="@drawable/person"
+            android:drawablePadding="10dp"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginBottom="20dp"
             android:hint="Indica tu usuario"
-            android:background="@color/white"
             android:imeOptions="actionNext"
             android:inputType="text"
             android:paddingHorizontal="18dp"
@@ -75,12 +78,14 @@
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
+            android:background="@drawable/bg_redondo"
+            android:drawableStart="@drawable/candadoo"
+            android:drawablePadding="10dp"
             android:layout_height="52dp"
             android:hint="Indica tu contraseña"
             android:textColorHint="@color/text_grey"
             android:textColor="@color/text_dark"
             android:textSize="15sp"
-            android:background="@color/white"
             android:paddingHorizontal="18dp"
             android:inputType="textPassword"
             android:imeOptions="actionDone"
