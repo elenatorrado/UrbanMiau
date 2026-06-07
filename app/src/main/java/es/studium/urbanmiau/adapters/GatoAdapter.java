@@ -46,10 +46,10 @@ public class GatoAdapter extends RecyclerView.Adapter<GatoAdapter.GatoViewHolder
     public void onBindViewHolder(@NonNull GatoViewHolder holder, int position) {
         Gato gatoActual = listaGatos.get(position);
 
-        // 1. Asignar los campos de texto usando tus IDs del XML y los métodos de tu POJO Gato
+
         holder.tvNombre.setText(gatoActual.getNombre() != null ? gatoActual.getNombre() : "Sin nombre");
 
-        // Controlamos el formato de la edad de forma limpia
+
         String edadTxt = gatoActual.getEdad();
         if (edadTxt != null && !edadTxt.trim().isEmpty()) {
             holder.tvEdad.setText(edadTxt.contains("año") || edadTxt.contains("mes") ? edadTxt : edadTxt + " años");
@@ -61,7 +61,7 @@ public class GatoAdapter extends RecyclerView.Adapter<GatoAdapter.GatoViewHolder
         holder.tvColonia.setText(gatoActual.getNombreColonia() != null ? gatoActual.getNombreColonia() : "Sin colonia");
         holder.tvCuidadora.setText(gatoActual.getNombreCuidadora() != null ? gatoActual.getNombreCuidadora() : "Sin cuidador/a");
 
-        // 2. 🛡️ ESCUDO ANTICRASH DE GLIDE: Filtramos el "null" para que no congele la app
+        //  Filtramos el "null" para que no congele la app
         String pathFoto = gatoActual.getFoto();
 
         if (pathFoto == null || pathFoto.trim().isEmpty() || pathFoto.equalsIgnoreCase("null") || pathFoto.endsWith("/null")) {
